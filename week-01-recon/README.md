@@ -1,10 +1,10 @@
 # Week 01 — Advanced Reconnaissance & Attack Surface Mapping
 
 ## Objective
-Conduct thorough passive reconnaissance on a target domain 
+Conduct thorough passive reconnaissance on a target domain
 to identify its digital footprint without being detected.
 
-##  Target
+## Target
 - **Domain:** vulnbank.org
 - **IP Address:** 172.67.134.11
 - **CDN/Proxy:** Cloudflare (confirmed)
@@ -36,24 +36,44 @@ to identify its digital footprint without being detected.
 |------|-----------------|-------|
 | Subfinder | 0 | Missing API keys, Cloudflare blocking |
 | Assetfinder | 0 | New domain, minimal passive data |
-| Amass | Pending | - |
-| CRT.sh | Pending | - |
+| Amass | 0 | Passive mode, Cloudflare blocking |
+| CRT.sh | 0 named subdomains | Wildcard cert found (see below) |
+
+### CRT.sh Certificate Analysis
+| Field | Value |
+|-------|-------|
+| Certificates Found | 19 |
+| Coverage | *.vulnbank.org + vulnbank.org |
+| Certificate Authorities | Let's Encrypt, Google Trust Services |
+| First Issued | 2025-07-05 (matches domain creation) |
+| Latest Certificate | 2026-03-06 (expires 2026-06-04) |
+
+**Key Finding:** Wildcard certificate (*.vulnbank.org) is in use.
+This confirms subdomains exist but individual names are not
+exposed through certificate transparency logs. Certificate
+management appears fully automated via Cloudflare.
+
+### DNS Records
+*(To be added — dig scans in progress)*
 
 ## Key Learnings
 1. Cloudflare hides real origin IPs behind proxy ranges (172.64.0.0/13)
 2. New domains have minimal historical data in passive databases
-3. API keys significantly improve subfinder's coverage
-4. No single tool is sufficient — cross-referencing is essential
-5. 0 results IS a valid finding — it tells you about the target's security posture
+3. API keys significantly improve subfinder coverage
+4. Wildcard certificates confirm subdomains exist without revealing names
+5. No single tool is sufficient — cross referencing is essential
+6. 0 results IS a valid finding — documents target security posture
 
 ## Challenges Encountered
 - Subfinder returned 0 results due to missing API keys
-- Cloudflare WAF blocking automated enumeration
-- Domain too new for significant passive intelligence
+- Cloudflare WAF actively blocking automated enumeration
+- Wildcard certificate hides individual subdomain names
 
-##  Recommendations
-Proceed to active enumeration techniques including:
-- DNS brute forcing with dnsx
-- Web crawling with gospider
-- Shodan search for historical IP exposure
-  
+## Recommendations
+- Proceed to DNS brute forcing with dnsx or gobuster
+- Search Shodan for historical IP exposure before Cloudflare
+- Add API keys to Subfinder for better passive coverage
+
+## Screenshots
+*(To be added after all scans complete)*
+```
