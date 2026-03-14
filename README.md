@@ -23,7 +23,7 @@ attack and defense skills.
 | Target | vulnbank.org (practice domain) |
 | Type | Passive OSINT & Subdomain Enumeration |
 | Tools | Subfinder, Assetfinder, Amass, CRT.sh, Dig, Whois |
-| Status | 🔄In Progress |
+| Status | complegte |
 
 ➡️ [View Full Writeup](./week-01-recon/README.md)
 
