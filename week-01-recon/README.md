@@ -53,9 +53,6 @@ This confirms subdomains exist but individual names are not
 exposed through certificate transparency logs. Certificate
 management appears fully automated via Cloudflare.
 
-### DNS Records
-*(To be added — dig scans in progress)*
-
 ## Key Learnings
 1. Cloudflare hides real origin IPs behind proxy ranges (172.64.0.0/13)
 2. New domains have minimal historical data in passive databases
