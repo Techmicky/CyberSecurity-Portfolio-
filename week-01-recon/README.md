@@ -75,5 +75,36 @@ management appears fully automated via Cloudflare.
 - Add API keys to Subfinder for better passive coverage
 
 ## Screenshots
-*(To be added after all scans complete)*
+
+### Assetfinder Results
+![Assetfinder](../assestfinder.png)
+
+### CRT.sh Results
+![CRT.sh](../curl%20crt.sh.png)
+
+### DNS Records
+![DNS](../DNS.png)
+
+### HTTP Headers
+![Headers](../Header.png)
+
+### Port Scan
+![Ports](../Port.png)
+
+### SSL Certificate
+![SSL](../SSL.png)
+
+### Subdomain Enumeration
+![Subdomains](../Sub%20Domain.png)
+
+### Dig Results
+![Dig](../dig%20vulnbank.png)
+```
+
+Commit message:
+```
+Add screenshot references to Week 01 README
+```
+```
+https://github.com/Techmicky/CyberSecurity-Portfolio-
 ```
