@@ -99,12 +99,6 @@ management appears fully automated via Cloudflare.
 
 ### Dig Results
 ![Dig](../dig%20vulnbank.png)
-```
 
-Commit message:
-```
-Add screenshot references to Week 01 README
-```
-```
 https://github.com/Techmicky/CyberSecurity-Portfolio-
 ```
